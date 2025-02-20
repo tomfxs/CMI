@@ -1,6 +1,6 @@
 {
   "name": "cmimqtt",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",

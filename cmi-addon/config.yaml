@@ -1,6 +1,6 @@
 name: "cmi mqtt"
 description: "cmi mqtt data"
-version: "1.0.8"
+version: "1.0.10"
 slug: "cmi-mqtt"
 init: false
 arch:
@@ -10,14 +10,18 @@ arch:
   - armv7
   - i386
 options:
-  mqtt_host: "192.168.0.185"
+  mqtt_host: ""
   mqtt_port: 1883
-  mqtt_user: "mqtt"
-  mqtt_password: "fuhfuh"
-  cmi_host: "192.168.0.186"
+  mqtt_user: ""
+  mqtt_password: ""
+  cmi_host: ""
+  cmi_user: ""
+  cmi_password: ""
 schema:
   mqtt_host: str
   mqtt_port: int
   mqtt_user: str
   mqtt_password: str
   cmi_host: str
+  cmi_user: str
+  cmi_password: str
