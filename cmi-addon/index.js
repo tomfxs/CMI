@@ -9,6 +9,8 @@ const { JSDOM } = jsdom;
 const { command, getConfig } = require('./const.js');
 const config = getConfig();
 
+const DEBUG = false;
+
 // CookieJar erstellen
 const jar = new CookieJar();
 
@@ -17,7 +19,7 @@ const client = wrapper(axios.create({ jar }));
 console.log('Config loaded:', config);
 
 // URL der fremden Webseite
-const MQTT_URL = `mqtt:/${config.mqtt_host}:${config.mqtt_port}`;
+const MQTT_URL = `mqtt://${config.mqtt_host}:${config.mqtt_port}`;
 const BASEURL=`http://${config.cmi_host}/schematic_files`;
 console.log('MQTT_URL:', MQTT_URL);
 const mqttClient = mqtt.connect(MQTT_URL, {
@@ -26,7 +28,7 @@ const mqttClient = mqtt.connect(MQTT_URL, {
 });
 
 const pub = (topic, data) => {
-  console.log(`Veröffentliche ${data} auf ${topic}`);
+  if (DEBUG) console.log(`Veröffentliche ${data} auf ${topic}`);
   mqttClient.publish(`homeassistant/cmi/${topic}`, data, {}, (err) => {
     if (err) {
       console.error('Fehler beim Veröffentlichen:', err.message);
@@ -40,7 +42,7 @@ const send = (data) => {
     if (err) {
       console.error('Fehler beim Veröffentlichen:', err.message);
     } else {
-      console.log(`Nachricht veröffentlicht: ${JSON.stringify(data)}`);
+      if (DEBUG) console.log(`Nachricht veröffentlicht: ${JSON.stringify(data)}`);
     }
   });
 
