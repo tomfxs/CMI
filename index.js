@@ -205,7 +205,7 @@ mqttClient.on('connect', async () => {
   setInterval(async () => {
     const data = await pull();
     send(data);
-  }, 10 * 1000);
+  },  (config.interval || 1) * 60 * 1000);
 
   const data = await pull();
   send(data);

@@ -1,6 +1,6 @@
 name: "cmi mqtt"
 description: "cmi mqtt data"
-version: "1.0.10"
+version: "1.0.12"
 slug: "cmi-mqtt"
 init: false
 arch:
@@ -17,11 +17,13 @@ options:
   cmi_host: ""
   cmi_user: ""
   cmi_password: ""
+  interval: 5
 schema:
   mqtt_host: str
   mqtt_port: int
   mqtt_user: str
-  mqtt_password: str
+  mqtt_password: password
   cmi_host: str
   cmi_user: str
-  cmi_password: str
+  cmi_password: password
+  interval: int
