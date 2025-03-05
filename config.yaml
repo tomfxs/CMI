@@ -1,6 +1,6 @@
-name: "cmi mqtt"
-description: "cmi mqtt data"
-version: "1.0.12"
+name: "cmi control"
+description: "cmi control over mqtt"
+version: "1.0.13"
 slug: "cmi-mqtt"
 init: false
 arch:
